@@ -1,0 +1,54 @@
+<p-dialog header="{{'layout_text.edit_account' | translate}}" [(visible)]="dialogOpened" [modal]="true"
+  [responsive]="true" [style]="{'width':'600px'}">
+  <form (ngSubmit)="submitDialog()" #form="ngForm">
+    <input type="hidden" name="id" ngModel>
+    <div fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="10px">
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_first_name</mat-label>
+        <input placeholder="{{'layout_text.application_user_first_name' | translate}}" name="firstName" required
+          ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_last_name</mat-label>
+        <input placeholder="{{'layout_text.application_user_last_name' | translate}}" name="lastName" required ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_mobile_number</mat-label>
+        <input placeholder="{{'layout_text.application_user_mobile_number' | translate}}" name="mobileNumber" required
+          ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_email_address</mat-label>
+        <input placeholder="{{'layout_text.application_user_email_address' | translate}}" name="emailAddress" required
+          ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_username</mat-label>
+        <input placeholder="{{'layout_text.application_user_username' | translate}}" name="username" required
+          ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.application_user_password</mat-label>
+        <input id="application_user_password" type="password" placeholder="{{'layout_text.application_user_password' | translate}}" name="password" required ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.edit_account_new_password</mat-label>
+        <input id="edit_account_new_password" type="password"
+          placeholder="{{'layout_text.edit_account_new_password' | translate}}" name="newPassword" required ngModel>
+      </div>
+      <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+        <mat-label translate>layout_text.edit_account_new_password_confirmation</mat-label>
+        <input id="edit_account_new_password_confirmation" type="password"
+          placeholder="{{'layout_text.edit_account_new_password_confirmation' | translate}}" name="newPasswordConfirmation" required ngModel>
+      </div>
+    </div>
+    <p-footer mat-dialog-actions fxLayout="row" fxLayoutAlign="end center" class="mt-3">
+      <button type="button" class="mx-2" (click)="closeDialog()" class="cancel-btn">
+        {{'layout_text.close' | translate}}
+      </button>
+      <button type="submit" class="submit-btn">
+        {{"layout_text.save" | translate}}
+      </button>
+    </p-footer>
+  </form>
+</p-dialog>

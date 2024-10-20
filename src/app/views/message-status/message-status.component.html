@@ -1,0 +1,66 @@
+<div class="header" fxLayoutAlign="start start">
+  <div fxLayoutAlign="start start" fxLayoutGap="15px">
+    <mat-icon class="material-symbols-outlined">send</mat-icon>
+    <div class="header_title">
+      <h2>{{"navbar.messageStatus" | translate}}</h2>
+      <div translate>messageStatus.des</div>
+    </div>
+  </div>
+</div>
+<div class="table_wrapper p-3 mt-3">
+  <p-table [value]="messages" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['firstName', 'lastName', 'email', 'mobile']" styleClass="p-datatable-lg">
+    <ng-template pTemplate="header">
+      <tr>
+        <th translate>table.firstName</th>
+        <th translate>table.lastName</th>
+        <th translate>table.email</th>
+        <th translate>table.mobile</th>
+        <th translate>navbar.messageStatus</th>
+        <th translate>table.actions</th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="firstName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="lastName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="email"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="mobile"></p-columnFilter>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-message>
+      <tr>
+        <td>{{message.firstName}}</td>
+        <td>{{message.lastName}}</td>
+        <td>{{message.email}}</td>
+        <td>{{message.mobile}}</td>
+        <td>{{message.messageText}}</td>
+        <td>
+          <button (click)="getFile(message.document)">
+            <mat-icon class="material-symbols-outlined">downloading</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6" translate>table.no_data</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-table>
+</div>

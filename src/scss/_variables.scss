@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Blaka&family=Rakkas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blaka&family=Noto+Naskh+Arabic&family=Rakkas&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+//gig fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
+@font-face {
+  font-family: arabic_font;
+  src: url('./../assets/fonts/TheMixArab\ Bold.ttf');
+}
+@font-face {
+  font-family: english_font;
+  src: url('./../assets/fonts/BoldenVan.ttf');
+}
+:root {
+  --primary_color: #282E85;
+  --secondary_color: #fddb00;
+  --headers_Font_Family: english_font;
+  --main_font: Arial, Helvetica, sans-serif
+}
+$main_color: #282E85;
+$sec_color: #fddb00;
+$white_color: #fff;
+$headers_font: english_font;
+$gray_background_color: #eee;
+$navy_color: #001a6b;
+
+//gig
+$headers_font_family:'Lato', sans-serif;
+$roboto_font: 'Roboto', sans-serif;
+$border_color: #EAEDF3;
+$input_color: #131336;
+$input_bg: #F5F5FB;
+$green_color: #50D757;
+$error_text_color: #FF0000;
+$link_btn_primary_color: #4B49AE;
+$primary_color_500: #7070BC;
+$text_color: #2B2D42;

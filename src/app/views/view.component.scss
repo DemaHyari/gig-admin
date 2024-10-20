@@ -1,0 +1,37 @@
+:host ::ng-deep {
+  mat-card-header {
+    mat-card-title{
+      h3{
+        color: #888;
+      }
+    }
+    .action-btns {
+      background: none;
+      border: 2px solid #d1d1d1;
+      border-radius: 4px;
+      color: #888;
+      padding: 8px 10px 5px;
+      line-height: inherit;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+
+  .mat-card-content {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .mat-table {
+      overflow-x: auto;
+      width: 100%;
+
+      @media screen and (max-width: 699px) {
+        width: 400%;
+      }
+
+      @media screen and (min-width: 700px) and (max-width: 990px) {
+        width: 200%;
+      }
+    }
+  }
+}

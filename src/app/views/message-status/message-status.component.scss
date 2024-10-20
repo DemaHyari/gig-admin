@@ -1,0 +1,73 @@
+@import '../../../scss/variables';
+
+:host ::ng-deep {
+  p-paginator .p-paginator-bottom.p-paginator {
+    position: relative;
+
+    .p-inputwrapper {
+      order: 0;
+
+      .p-dropdown {
+        &.p-focus {
+          border-color: $main_color !important;
+          box-shadow: 0 0 0 0.2rem rgba($color: $main_color, $alpha: 0.2) !important;
+        }
+      }
+    }
+
+    .p-paginator-current {
+      order: 1;
+    }
+
+    .p-paginator-left-content {
+      order: 2;
+    }
+
+    .p-paginator-first {
+      order: 3;
+    }
+
+    .p-paginator-prev {
+      order: 4;
+    }
+
+    .p-paginator-pages {
+      order: 5;
+
+      .p-paginator-page.p-highlight {
+        border-radius: 50%;
+        background: rgba($main_color, .3);
+      }
+    }
+
+    .p-paginator-next {
+      order: 6;
+    }
+
+    .p-paginator-last {
+      order: 7;
+    }
+  }
+
+  .table_wrapper {
+    background: $white_color;
+
+    .p-datatable>.p-datatable-wrapper {
+      min-height: 72vh;
+    }
+
+    .p-datatable .p-datatable-thead>tr>th {
+      background: transparent;
+    }
+
+    .action_btns {
+      background-color: rgba($main_color, 1.0);
+      color: $white_color;
+      border-radius: 20px;
+      font-size: 16px;
+      font-family: $roboto_font;
+      padding: 6px 16px;
+    }
+
+  }
+}

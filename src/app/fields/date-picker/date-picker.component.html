@@ -1,0 +1,6 @@
+<div class="field-wrapper" [ngClass]="{'filled':selectedValue}" (click)="onFieldWrapperClick($event)">
+  <p-calendar dateFormat="dd-mm-yy" [hideOnDateTimeSelect]="true" (change)="onChange($event)" [disabled]="disabled"
+    [(ngModel)]="selectedValue" [maxDate]="maxDate" [timeOnly]="timeOnly" [selectionMode]="selectionMode" [required]="required"
+    #calendarField></p-calendar>
+  <label dir="{{'styles.dir' | translate}}" class="field-label ">{{label}}</label>
+</div>

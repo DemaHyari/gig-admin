@@ -1,0 +1,86 @@
+<div class="header" fxLayoutAlign="start start">
+  <div fxLayoutAlign="start start" fxLayoutGap="15px">
+    <mat-icon class="material-symbols-outlined">group</mat-icon>
+    <div class="header_title">
+      <h2 translate>users.title</h2>
+      <div translate>users.des</div>
+    </div>
+  </div>
+</div>
+<div class="table_wrapper p-3 mt-3">
+  <p-table [value]="users" [loading]="loading"  [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,25,50]"
+    [globalFilterFields]="['userId','englishFirstName', 'englishLastName', 'gender','dateOfBirthG','email', 'mobile']" styleClass="p-datatable-lg">
+    <ng-template pTemplate="header">
+      <tr>
+        <th translate>table.id</th>
+        <th translate>table.firstName</th>
+        <th translate>table.lastName</th>
+        <th translate>table.gender</th>
+        <th translate>table.DOB</th>
+        <th translate>table.email</th>
+        <th translate>table.mobile</th>
+        <th style="min-width:8rem" translate>table.status</th>
+        <th translate>table.actions</th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="userId"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="englishFirstName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="englishLastName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="gender"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="dateOfBirthG"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="email"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="mobile"></p-columnFilter>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{user.userId}}</td>
+        <td>{{user.englishFirstName}}</td>
+        <td>{{user.englishLastName}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.dateOfBirthG}}</td>
+        <td>{{user.email ? user.email:'-'}}</td>
+        <td>{{user.mobile ? user.mobile : '-'}}</td>
+        <td>
+          <span class="status" fxLayoutAlign="start center" fxLayoutGap="5px">
+            <mat-icon [ngClass]="user.isActive? 'active':'inactive'">adjust</mat-icon>
+            <span translate> {{user.isActive ? 'adminUsers.active' : 'adminUsers.inactive'}} </span>
+          </span>
+        </td>
+        <td>
+          <button (click)="toggleStatus(user.isActive, user.userId)">
+            <span class="material-symbols-outlined">flaky</span>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7" translate>table.no_data</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,20 @@
+<div class="app-container" dir="{{'styles.dir' | translate}}">
+  <p-toast life='30000'></p-toast>
+  <p-blockUI [blocked]="showSpinner">
+    <div class="spinner">
+      <div class="cube1"></div>
+      <div class="cube2"></div>
+    </div>
+  </p-blockUI>
+
+  <p-confirmDialog header="{{'layout_text.confirmation' | translate}}" icon="fa fa-question-circle" width="425" #cd>
+    <p-footer>
+      <button [ngClass]="'styles.float-reverse-direction' | translate" type="button" pButton icon="fa-check" label="{{'layout_text.yes' | translate}}"
+        (click)="cd.accept()"></button>
+      <button [ngClass]="'styles.float-reverse-direction' | translate" type="button" pButton icon="fa-close" label="{{'layout_text.no' | translate}}"
+        (click)="cd.reject()"></button>
+      <br clear="all" />
+    </p-footer>
+  </p-confirmDialog>
+  <router-outlet></router-outlet>
+</div>

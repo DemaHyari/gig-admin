@@ -1,0 +1,32 @@
+<section class="p-3" style="min-width: 600px;">
+  <div class="toolbar" fxLayoutAlign="start center">
+    <h2 translate>promotion.add</h2>
+    <span fxFlex></span>
+    <button (click)="cancel()" type="button" data-cy="close-add-attribute">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content [formGroup]="addPromotionFormGroup" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <mat-label translate>promotion.promotionType</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of promotionType" [value]="type.value">
+          {{ type.name | translate}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <mat-label translate>promotion.promotionImage</mat-label>
+      <input  type="file" id="logoFileInput" #logoFileInput (change)="uploadLogoFile($event)">
+      <input type="hidden" name="logoFileName" formControlName="image" required>
+    </div>
+  </div>
+  <div mat-dialog-actions fxLayoutAlign="end center" fxLayoutGap="6px">
+    <button class="cancel_btn" type="button" (click)="cancel()" cdkFocusInitial translate>
+      layout_text.cancel
+    </button>
+    <button class="submit_btn" type="button" (click)="create()" cdkFocusInitial translate>
+      layout_text.save
+    </button>
+  </div>
+</section>

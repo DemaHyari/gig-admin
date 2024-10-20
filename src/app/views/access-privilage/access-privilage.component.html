@@ -1,0 +1,84 @@
+<div class="header" fxLayoutAlign="space-between start">
+  <div fxLayoutAlign="start start" fxLayoutGap="15px">
+    <mat-icon class="material-symbols-outlined">folder_open</mat-icon>
+    <div class="header_title">
+      <h2 translate>navbar.accessPrivilage</h2>
+      <div translate>adminUsers.des</div>
+    </div>
+  </div>
+  <div>
+    <button (click)="addAdmin()">
+      <mat-icon class="material-symbols-outlined">control_point_duplicate</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="table_wrapper p-3 mt-3">
+  <p-table [value]="users" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['userId', 'userName', 'email', 'mobile']" styleClass="p-datatable-lg">
+    <ng-template pTemplate="header">
+      <tr>
+        <th translate>table.id</th>
+        <th translate>adminUsers.username</th>
+        <th translate>table.email</th>
+        <th translate>table.mobile</th>
+        <th translate>navbar.users</th>
+        <th translate>navbar.promotion</th>
+        <th translate>navbar.messageStatus</th>
+        <th translate>navbar.complaints</th>
+        <th style="min-width:8rem" translate>table.status</th>
+        <th translate>table.actions</th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="userId"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="userName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="email"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="mobile"></p-columnFilter>
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-admin>
+      <tr>
+        <td>{{admin.id}}</td>
+        <td>{{admin.userName}}</td>
+        <td>{{admin.email}}</td>
+        <td>{{admin.mobile}}</td>
+        <ng-container *ngFor="let view of admin.adminUserTargets">
+          <td>
+            <p-inputSwitch [(ngModel)]="view.isActive" (click)="toggleAccess(view)"></p-inputSwitch>
+          </td>
+        </ng-container>
+        <td>
+          <span class="status" fxLayoutAlign="start center" fxLayoutGap="5px">
+            <mat-icon [ngClass]="admin.isActive? 'active':'inactive'">adjust</mat-icon>
+            <span translate> {{admin.isActive ? 'adminUsers.active':'adminUsers.inactive' }} </span>
+          </span>
+        </td>
+        <td>
+          <button (click)="toggleStatus(admin.isActive, admin.userName)">
+            <span class="material-symbols-outlined">flaky</span>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-table>
+</div>

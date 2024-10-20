@@ -1,0 +1,7 @@
+<div class="autocomplete-field field-wrapper" [ngClass]="{'filled':selectedValue}" (click)="onWrapperClick()">
+  <p-autoComplete class="autocomplete" (onSelect)="emitValueChange($event)" (onUnselect)="emitValueChange($event)" (onKeyUp)="checkAutocompleteEmptyValue($event)"
+    [readonly]="readonly" [disabled]="disabled" [(ngModel)]="selectedValue" [suggestions]="autocompleteResult"
+    [multiple]="multiple" (onKeyUp)="onKeyUp($event)" (completeMethod)="autoComplete($event)" [field]="field" [size]="20"
+    [minLength]="1" [forceSelection]="true" [required]="required" [dropdown]="true" #autoCompleteField></p-autoComplete>
+  <label dir="{{'styles.dir' | translate}}" class="field-label">{{label}}</label>
+</div>

@@ -1,0 +1,48 @@
+.field-wrapper {
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 1.25em;
+}
+
+.app-container[dir=rtl] .p-calendar .p-datepicker {
+    left: unset !important;
+}
+
+.field-label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 1.125;
+    position: absolute;
+    top: 15px;
+}
+
+.field-label[dir="ltr"]{
+    left: 0px;
+    right: auto;
+}
+
+.field-label[dir="rtl"]{
+    right: 0px;
+    left: auto;
+}
+
+.ng-invalid.ng-touched ~ .field-label {
+    color: #f44336;
+}
+
+.ui-inputwrapper-focus ~ .field-label {
+    color: #3f51b5;
+}
+
+.ui-inputwrapper-focus ~ .field-label, .field-wrapper.filled .field-label {
+    font-size: 11px !important;
+    top: 0px;
+}
+
+[required] ~ .field-label::after {
+    content: ' *';
+}
+
+[required].ui-inputwrapper-focus ~ .field-label::after {
+    color: #f44336;
+}

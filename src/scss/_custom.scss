@@ -1,0 +1,267 @@
+/*Prime NG*/
+.ui-widget {
+  font-size: 1rem !important;
+}
+
+.ui-dialog-titlebar {
+  background: white !important;
+}
+
+.ui-growl {
+  top: 60px !important;
+}
+
+.app-container[dir="ltr"] .ui-dialog-titlebar-close {
+  float: right;
+}
+
+.app-container[dir="rtl"] .ui-dialog-titlebar-close {
+  float: left;
+}
+
+.app-container[dir="ltr"] .ui-growl-icon-close {
+  right: 4px;
+  left: auto;
+}
+.app-container[dir="rtl"] .ui-growl-icon-close {
+  left: 4px;
+  right: auto;
+}
+.app-container[dir="ltr"] .ui-growl-image {
+  left: 0.5em;
+  right: auto;
+}
+.app-container[dir="rtl"] .ui-growl-image {
+  left: auto !important;
+  right: 0.5em !important;
+}
+.app-container[dir="ltr"] .ui-growl-message {
+  margin-left: 2.5em;
+  margin-right: 0px;
+}
+.app-container[dir="rtl"] .ui-growl-message {
+  margin-right: 2.5em;
+  margin-left: 0px;
+}
+.app-container[dir="ltr"] .ui-growl {
+  right: 20px;
+  left: auto;
+}
+.app-container[dir="rtl"] .ui-growl {
+  right: auto;
+  left: 20px;
+}
+
+.ui-inputtext {
+  border: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.54) !important;
+  width: 100% !important;
+  box-shadow: none !important;
+  border-radius: 0px !important;
+  padding: 0px 0px !important;
+  font-size: 14px !important;
+}
+
+.ui-calendar {
+  width: 100% !important;
+}
+
+.ui-inputtext:focus {
+  border-bottom: 3px solid #3f51b5 !important;
+}
+
+.field-wrapper .ng-invalid.ng-touched .ui-inputtext {
+  border-color: #f44336 !important;
+}
+
+.ng-invalid.ng-touched > .field-wrapper .ui-inputtext {
+  border-color: #f44336 !important;
+}
+
+.ng-invalid.ng-touched > .field-wrapper .field-label {
+  color: #f44336 !important;
+}
+
+.ui-autocomplete {
+  width: 100% !important;
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list-item {
+  text-align: inherit !important;
+}
+
+.ui-autocomplete-dropdown.ui-button {
+  width: 100% !important;
+  color: #0000008a !important;
+  background-color: transparent !important;
+  border: none !important;
+  top: -28px !important;
+}
+.app-container[dir="ltr"] .ui-autocomplete-dropdown.ui-button .ui-button-icon-left{
+  right: 2px !important;
+  left: auto !important;
+}
+
+.app-container[dir="rtl"] .ui-autocomplete-dropdown.ui-button .ui-button-icon-left{
+  right: auto !important;
+  left: 2px !important;
+}
+
+.app-container[dir="ltr"] .ui-datepicker {
+  top: 22px;
+  left: 0px;
+  right: auto;
+}
+
+.app-container[dir="rtl"] .ui-datepicker {
+  top: 22px;
+  right: 0px;
+  left: auto;
+}
+
+.ui-chkbox-label {
+  vertical-align: baseline !important;
+}
+
+.ui-blockui {
+  opacity: 1 !important;
+  background: rgba(102, 102, 102, 0.14) !important;
+}
+
+/*Angular Material*/
+
+.mat-toolbar {
+  z-index: 91;
+  height: 50px !important;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mat-header-cell .mat-focused .mat-input-underline {
+  display: block;
+}
+
+.mat-header-cell {
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+textarea.mat-input-element {
+  overflow-x: hidden !important;
+}
+
+.mat-header-cell mat-form-field {
+  width: 80%;
+}
+
+.mat-menu-item {
+  outline: none !important;
+}
+
+.mat-sidenav {
+  box-shadow: 0px 0px 8px 0px gray;
+  z-index: 91;
+  min-width: 220px !important;
+}
+
+.mat-sidenav .mat-nav-list {
+  padding-top: 0px;
+}
+
+.mat-sidenav .mat-list-item-content,
+.mat-sidenav .mat-expansion-panel-header-title {
+  color: rgba(49, 48, 48, 0.87) !important;
+}
+
+.mat-sidenav .mat-expansion-panel-body .mat-nav-list {
+  padding-top: 0px !important;
+}
+
+.mat-sidenav .mat-expansion-panel {
+  box-shadow: none !important;
+}
+
+.mat-sidenav .mat-expansion-panel-header {
+  height: 48px !important;
+  padding: 0px 16px !important;
+}
+
+.mat-sidenav .mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+.app-container[dir="ltr"] .mat-sidenav .mat-expansion-panel-body .mat-list-item .mat-list-item-content {
+  padding-left: 36px !important;
+}
+
+.app-container[dir="rtl"] .mat-sidenav .mat-expansion-panel-body .mat-list-item .mat-list-item-content {
+  padding-right: 36px !important;
+}
+
+.mat-sidenav .mat-list-item.active-link {
+  background: rgba(158, 158, 158, 0.4);
+}
+
+.mat-subheader {
+  height: 36px;
+  padding-top: 20px !important;
+  padding-bottom: 0px !important;
+}
+.mat-raised {
+  height: 40px;
+}
+
+.mat-raised-button {
+  height: 40px;
+}
+
+.mat-header-row:first-child {
+  border-bottom-width: 0px !important;
+}
+
+.mat-header-row {
+  min-height: 30px !important;
+  height: 30px !important;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  letter-spacing: normal;
+  outline: 0
+}
+
+/*Bootstrap*/
+
+.custom-file {
+  height: 2rem;
+}
+
+.custom-file-input {
+  height: 2rem;
+}
+
+.custom-file-control {
+  height: 2rem;
+  padding: 0.35rem 0.6rem;
+  line-height: 0.9;
+}
+
+.custom-file-control::after {
+  content: "Choose file...";
+}
+
+.custom-file-control::before {
+  content: "Browse";
+  height: 2rem;
+  line-height: 0.9;
+}
+
+
+.ui-dialog mat-card {
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.thead-light td {
+  background-color: #e9ecef;
+}
+

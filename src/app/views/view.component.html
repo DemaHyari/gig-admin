@@ -1,0 +1,65 @@
+<mat-card class="view-container">
+  <mat-card-header fxLayout="row wrap" fxLayoutAlign.gt-sm="space-between center"fxLayoutAlign.lt-md="center center">
+    <mat-card-title fxFlex.gt-sm="40" fxFlex.lt-md="100">
+      <h3>{{ "layout_text." + viewTitle | translate }}</h3>
+    </mat-card-title>
+    <div [ngClass]="'styles.m-direction-auto' | translate" fxFlex.gt-sm="60" fxFlex.lt-md="100" fxLayout="row wrap"
+      fxLayoutAlign.gt-sm="end center" fxLayoutAlign.lt-md="center center">
+      <button *ngIf="serviceName != 'main-menu'" (click)="navigateToDocument(null)" class="action-btns">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button [matMenuTriggerFor]="menu"class="action-btns"><i class="fa fa-cloud-download" aria-hidden="true"></i></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item type="button" (click)="exportViewToExcel()" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <i class="fa fa-file-excel-o"></i>
+          <span>{{ "layout_text.export_to_excel" | translate }}</span>
+        </button>
+        <button mat-menu-item type="button" (click)="exportViewToPdf()" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <i class="fa fa-file-pdf-o"></i>
+          <span>{{ "layout_text.export_to_pdf" | translate }}</span>
+        </button>
+      </mat-menu>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="mt-3">
+    <mat-table #table [dataSource]="dataSource" matSort class="m-2">
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button *ngIf="serviceName != 'main-menu'" (click)="navigateToDocument(element.id)" matTooltip="{{'layout_text.edit' |translate}}"
+            matTooltipPosition="above" class="btn btn-link text-dark p-1">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button *ngIf="serviceName != 'main-menu'" appElementPermission renderedForRoles="ROLE_ADMIN,ROLE_FINANCE_MANAGER"
+            matTooltip="{{'layout_text.delete' | translate}}" matTooltipPosition="above"
+            class="btn btn-link text-dark p-1" (click)="deleteItem(element.id)"><i class="fa fa-times"></i></button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container *ngFor="let columnName of dynamicColumns" [matColumnDef]="columnName">
+        <mat-header-cell mat-sort-header [disabled]="!columnsDef[columnName].sorted" *matHeaderCellDef> {{
+          "layout_text." + columnsDef[columnName].label | translate }} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ getColumnValue(element, columnName) }} </mat-cell>
+      </ng-container>
+
+      <ng-container *matHeaderRowDef="allColumns">
+        <mat-header-row></mat-header-row>
+        <div class="mat-header-row header-group-row">
+          <div class="mat-header-cell" role="columnheader">
+            {{ "layout_text.actions" | translate }}</div>
+          <ng-container *ngFor="let columnName of dynamicColumns">
+            <div class="mat-header-cell" role="columnheader">
+              <mat-form-field *ngIf="columnsDef[columnName].filtered"> <input matInput (change)="loadDataTable()"
+                  [(ngModel)]="filters[columnName]" /> </mat-form-field>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+      <mat-row *matRowDef="let row; columns: allColumns"></mat-row>
+
+    </mat-table>
+    <mat-paginator #paginator [pageSizeOptions]="getPageSizeOptionsArray()" [showFirstLastButtons]="true">
+    </mat-paginator>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,20 @@
+@import './../../../scss/variables';
+
+:host {
+  .submit_btn {
+    background-color: rgba($main_color, 1.0);
+    color: $white_color;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: $roboto_font;
+    padding: 6px 16px;
+  }
+
+  .cancel_btn {
+    color: $main_color;
+    font-size: 16px;
+    font-family: $roboto_font;
+    padding: 6px 16px;
+
+  }
+}

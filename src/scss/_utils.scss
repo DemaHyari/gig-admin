@@ -1,0 +1,66 @@
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-45 {
+  width: 45% !important;
+}
+
+.w-40px {
+  width: 40px !important;
+}
+
+.w-80px {
+  width: 80px !important;
+}
+
+.w-120px {
+  width: 120px !important;
+}
+
+.w-160px {
+  width: 160px !important;
+}
+
+.w-200px {
+  width: 200px !important;
+}
+
+.h-max-40px {
+  max-height: 40px !important;
+}
+
+.w-380px {
+  width: 380px !important;
+}
+
+.app-container[dir="ltr"] .text-reverse-direction {
+  text-align: right !important;
+}
+
+.app-container[dir="rtl"] .text-reverse-direction {
+  text-align: left !important;
+}
+
+.app-container[dir="ltr"] .float-reverse-direction {
+  float: right !important;
+}
+
+.app-container[dir="rtl"] .float-reverse-direction {
+  float: left !important;
+}
+
+.modal-div{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: black;
+  opacity: 0.2;
+  z-index: 1000;
+}

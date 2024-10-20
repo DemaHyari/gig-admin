@@ -1,0 +1,34 @@
+<section class="p-3" style="min-width: 600px;">
+  <div class="toolbar" fxLayoutAlign="start center">
+    <h2 translate>adminUsers.add</h2>
+    <span fxFlex></span>
+    <button (click)="cancel()" type="button" data-cy="close-add-attribute">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content [formGroup]="addAdminFormGroup" fxLayout="row wrap" fxLayoutAlign="start center"
+    fxLayoutGap="10px">
+    <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <mat-label translate>adminUsers.username</mat-label>
+      <input type="text" name="username" formControlName="userName" placeholder="{{'adminUsers.username'|translate}}" required>
+    </div>
+    <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <mat-label translate>adminUsers.email</mat-label>
+      <input type="text" name="email" formControlName="email" placeholder="{{'adminUsers.email'|translate}}"
+        required>
+    </div>
+    <div class="form_control" fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="5px">
+      <mat-label translate>adminUsers.mobile</mat-label>
+      <input type="text" name="mobile" formControlName="mobile" placeholder="{{'adminUsers.mobile'|translate}}"
+        required>
+    </div>
+  </div>
+  <div mat-dialog-actions fxLayoutAlign="end center" fxLayoutGap="6px">
+    <button class="cancel_btn" type="button" (click)="cancel()" cdkFocusInitial translate>
+      layout_text.cancel
+    </button>
+    <button class="submit_btn" type="button" (click)="addAdmin()" cdkFocusInitial translate>
+      layout_text.save
+    </button>
+  </div>
+</section>

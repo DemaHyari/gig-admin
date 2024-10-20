@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <script src="https://test-network.mtf.gateway.mastercard.com/static/checkout/checkout.min.js"
+    data-error="errorCallback" data-cancel="cancelCallback"></script>
+  <script type="text/javascript">
+    function errorCallback(error) {
+      console.log(JSON.stringify(error));
+    }
+    function cancelCallback() {
+      console.log('Payment cancelled');
+    }
+    // Configure Checkout first
+    Checkout.configure({
+      session: {
+        id: 'SESSION0002998028708G1647787N37' // api
+      },
+      interaction: {
+        merchant: {
+          name: 'TESTNITEST',
+          address: {
+            line1: '200 Sample St',
+            line2: '1234 Example Town'
+          }
+        },
+        operation: "PURCHASE"
+      },
+      merchant: "TESTNITEST",
+      order: {
+        id: "19", //order id
+        invoiceNumber: "10323",
+        description: "zzx",
+        customerReference: "customerReference",
+        itemAmount: 100 // order amount
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div id="embed-target"> </div>
+  <input type="button" value="Pay with Payment Page" onclick="Checkout.showPaymentPage();" />
+</body>
+
+</html>

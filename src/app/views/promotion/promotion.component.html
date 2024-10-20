@@ -1,0 +1,57 @@
+<div class="header" fxLayoutAlign="space-between start">
+  <div fxLayoutAlign="start start" fxLayoutGap="15px">
+    <mat-icon class="material-symbols-outlined">auto_awesome</mat-icon>
+    <div class="header_title">
+      <h2>{{"navbar.promotion" | translate}}</h2>
+      <div translate>promotion.des</div>
+    </div>
+  </div>
+  <div>
+    <button (click)="addPromositon()">
+      <mat-icon class="material-symbols-outlined">control_point_duplicate</mat-icon>
+    </button>
+  </div>
+</div>
+<div class="table_wrapper p-3 mt-3">
+  <p-table [value]="promotions" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['id']"styleClass="p-datatable-lg">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:15rem">
+          <div class="flex justify-content-center align-items-center" translate>
+            table.id_pro
+            <p-columnFilter type="text" field="id" display="menu"></p-columnFilter>
+          </div>
+        </th>
+        <th translate>table.type</th>
+        <th translate>table.actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-promotion>
+      <tr>
+        <td>{{promotion.id}}</td>
+        <td>{{promotion.type? 'promotion.motors':'promotion.health' | translate}}</td>
+        <td>
+          <button (click)="downloadimage(promotion.image)">
+            <mat-icon class="material-symbols-outlined">downloading</mat-icon>
+          </button>
+          <button (click)="deletePromotion(promotion.id, promotion.image, promotion.type)">
+            <mat-icon class="material-symbols-outlined">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="4" translate>table.no_data</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-table>
+</div>

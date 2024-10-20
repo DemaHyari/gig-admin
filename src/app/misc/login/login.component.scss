@@ -1,0 +1,88 @@
+@import "./../../../scss/variables";
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+:host {
+  .login {
+    &_logo {
+      background-color: $main_color;
+      height: 100%;
+      color: $white_color;
+      font-family: $headers_font_family;
+
+      .company_logo {
+        opacity: 1;
+      }
+
+      .header {
+        font-size: 48px;
+        font-family: $headers_font_family;
+
+        span {
+          display: block;
+        }
+      }
+
+      .description {
+        font-size: 16px;
+        margin-top: 32px;
+      }
+    }
+
+    &_form {
+      height: 100%;
+
+      .login_header {
+        font-size: 40px;
+        color: $input_color;
+        font-family: $headers_font_family;
+        width: 100%;
+
+        &_desc {
+          font-size: 16px;
+          color: $input_color;
+          font-family: $headers_font_family;
+          width: 100%;
+          margin-bottom: 22px !important;
+        }
+      }
+
+      .form_control {
+        position: relative;
+        width: 100%;
+
+        mat-icon {
+          position: absolute;
+          font-size: 18px;
+          color: #ccc;
+          margin: 16px 3px 0 8px;
+        }
+
+        input {
+          min-width: 380px;
+          padding: 12px 30px 12px 30px !important;
+        }
+      }
+
+      .submitbtn {
+        button {
+          color: $white_color;
+          background: $main_color;
+          border-radius: 24px;
+          padding: 12px;
+          font-size: 16px;
+          font-family: $roboto_font;
+          min-width: 150px;
+        }
+      }
+    }
+    .container {
+      &-fluid {
+        padding: 0;
+        height: 100vh;
+      }
+    }
+  }
+}

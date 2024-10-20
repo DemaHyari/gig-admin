@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h3>{{"layout_text.form_title" | translate:formTitle}}</h3>
+
+    </mat-card-title>
+    <div [ngClass]="'styles.m-direction-auto' | translate" *ngIf="!isNew">
+      <small *ngIf="creator" class="text-muted">{{"layout_text.created_at"| translate}} {{createdTime}}
+        {{"layout_text.by"| translate}}
+        {{creator.fullName}}</small>
+      <br />
+      <small *ngIf="lastEditor" class="text-muted">{{"layout_text.last_modified_at"| translate}} {{lastModifiedTime}}
+        {{"layout_text.by"|
+        translate}} {{lastEditor.fullName}}</small>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,61 @@
+<div class="header" fxLayoutAlign="start start">
+  <div fxLayoutAlign="start start" fxLayoutGap="15px">
+    <mat-icon class="material-symbols-outlined">problem</mat-icon>
+    <div class="header_title">
+      <h2>{{"navbar.complaints" | translate}}</h2>
+      <div translate>complaints.des</div>
+    </div>
+  </div>
+</div>
+<div class="table_wrapper p-3 mt-3">
+  <p-table [value]="complaints" [paginator]="true" [rows]="10"    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+    [globalFilterFields]="['fullName', 'email', 'mobile']"styleClass="p-datatable-lg">
+    <ng-template pTemplate="header">
+      <tr>
+        <th translate>adminUsers.username</th>
+        <th translate>table.email</th>
+        <th translate>table.mobile</th>
+        <th translate>navbar.complaints</th>
+        <th translate>table.actions</th>
+      </tr>
+      <tr>
+        <th>
+          <p-columnFilter type="text" field="fullName"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="email"></p-columnFilter>
+        </th>
+        <th>
+          <p-columnFilter type="text" field="mobile"></p-columnFilter>
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-complaint>
+      <tr>
+        <td>{{complaint.fullName}}</td>
+        <td>{{complaint.email}}</td>
+        <td>{{complaint.mobile}}</td>
+        <td>{{complaint.complaintText}}</td>
+        <td>
+          <button (click)="getFile(complaint.document)">
+            <mat-icon class="material-symbols-outlined">downloading</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="5" translate>table.no_data</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="paginatorleft">
+      <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+    </ng-template>
+    <ng-template pTemplate="paginatorright">
+      <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+    </ng-template>
+  </p-table>
+</div>
